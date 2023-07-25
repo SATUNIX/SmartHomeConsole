@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Temperature Display</title>
+</head>
+<body>
+    <h1>Current Temperature:</h1>
+    <ul>
+        <li>UV: <span id="uv-placeholder">Loading...</span></li>
+        <li>Precipitation: <span id="precipitation-placeholder">Loading...</span></li>
+        <li>Humidity: <span id="humidity-placeholder">Loading...</span></li>
+        <li>PM2.5: <span id="pm25-placeholder">Loading...</span></li>
+    </ul>
+    <script>
+        function updateDATA() {
+            fetch('/alldata')
+                .then(response => response.json()) // Parse the response as JSON
+                .then(data => {
+                    document.getElementById('uv-placeholder').textContent = data.uv;
+                    document.getElementById('precipitation-placeholder').textContent = data.precipitation;
+                    document.getElementById('humidity-placeholder').textContent = data.humidity;
+                    document.getElementById('pm25-placeholder').textContent = data.pm25;
+                })
+                .catch(error => {
+                    console.error('Error fetching temperature:', error);
+                });
+        }
+
+        // Update temperature every 5 seconds (adjust as needed)
+        setInterval(updateDATA, 5);
+
+        // Fetch temperature immediately on page load
+        updateDATA();
+    </script>
+</body>
+</html>

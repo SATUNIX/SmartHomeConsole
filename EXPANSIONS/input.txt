@@ -1,0 +1,13 @@
+WIFI Connected 
+Back light on 
+Back light off 
+Fountain Pump on 
+Fountain Pump off
+Soil moisture high 
+Soil moisture low 
+Temperature high 
+Temperature low 
+UV RADIATION HIGH
+SEEK SHADE 
+
+
